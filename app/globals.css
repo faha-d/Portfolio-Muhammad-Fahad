@@ -1,0 +1,230 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #050a14;
+  --surface: #0b1220;
+  --surface2: #101827;
+  --text: #f4f7fb;
+  --muted: #8b98aa;
+  --green: #5cff9a;
+  --border: rgba(255, 255, 255, 0.09);
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+::selection {
+  background: rgba(92, 255, 154, 0.22);
+}
+.grid-bg,
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.hero-grid {
+  background-position: center top;
+}
+.section-dark {
+  background: linear-gradient(180deg, #070c16 0%, #060b14 100%);
+}
+.glow {
+  box-shadow:
+    0 0 90px rgba(92, 255, 154, 0.07),
+    0 24px 80px rgba(0, 0, 0, 0.25);
+}
+.mono {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+.text-gradient {
+  background: linear-gradient(110deg, #f5f7fb 10%, #8dffb6 85%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.status-dot {
+  display: inline-block;
+  height: 6px;
+  width: 6px;
+  border-radius: 999px;
+  background: #5cff9a;
+  box-shadow: 0 0 12px rgba(92, 255, 154, 0.8);
+}
+.terminal-dot {
+  display: block;
+  height: 9px;
+  width: 9px;
+  border-radius: 999px;
+}
+.terminal-shell {
+  box-shadow:
+    0 0 100px rgba(92, 255, 154, 0.045),
+    0 30px 90px rgba(0, 0, 0, 0.32);
+}
+.terminal-shell:after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+.terminal-pane {
+  min-height: 390px;
+}
+.code-pane {
+  min-height: 390px;
+}
+.scanlines {
+  background: linear-gradient(
+    transparent 49%,
+    rgba(92, 255, 154, 0.02) 50%,
+    transparent 51%
+  );
+  background-size: 100% 8px;
+}
+.cursor {
+  animation: blink 1s steps(1) infinite;
+}
+.metric-card,
+.experience-card,
+.project-card {
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.metric-card:hover {
+  border-color: rgba(92, 255, 154, 0.18);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.16);
+}
+.experience-card:hover {
+  border-color: rgba(92, 255, 154, 0.18);
+  background: #0c1423;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+}
+.project-card:hover {
+  border-color: rgba(92, 255, 154, 0.18);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.2);
+}
+.primary-btn {
+  background: #5cff9a;
+  color: #06100b;
+  box-shadow: 0 0 28px rgba(92, 255, 154, 0.1);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 38px rgba(92, 255, 154, 0.18);
+  background: #73ffa8;
+}
+.secondary-btn {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.025);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+.secondary-btn:hover {
+  transform: translateY(-2px);
+  border-color: rgba(92, 255, 154, 0.22);
+  background: rgba(92, 255, 154, 0.04);
+}
+.nav-link {
+  position: relative;
+}
+.nav-link:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -7px;
+  height: 1px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: #5cff9a;
+  transition: transform 0.2s ease;
+}
+.nav-link:hover:after {
+  transform: scaleX(1);
+}
+.project-visual {
+  isolation: isolate;
+}
+.project-visual:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 80% 20%,
+    rgba(92, 255, 154, 0.04),
+    transparent 35%
+  );
+}
+.project-glow {
+  transition: transform 0.5s ease;
+}
+.project-card:hover .project-glow {
+  transform: translate(-30px, 30px);
+}
+.skill-pill {
+  transition: transform 0.2s ease;
+}
+.skill-pill:hover {
+  transform: translateY(-2px);
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 34s linear infinite;
+}
+@media (max-width: 640px) {
+  .terminal-pane,
+  .code-pane {
+    min-height: auto;
+  }
+  .hero-title {
+    line-height: 0.96;
+  }
+  .mockup-grid {
+    min-height: 190px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .cursor {
+    animation: none;
+  }
+  .animate-marquee {
+    animation: none;
+  }
+  .primary-btn,
+  .secondary-btn {
+    transition: none;
+  }
+}
