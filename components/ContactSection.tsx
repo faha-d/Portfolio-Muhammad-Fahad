@@ -9,17 +9,17 @@ export default function ContactSection() {
       className="section-dark border-t border-white/[0.055] px-5 py-28 text-center lg:px-8"
     >
       <Reveal className="mx-auto max-w-4xl">
-        <SectionLabel number="05" title="CONTACT" centered />
+        <SectionLabel number="04" title="CONTACT" centered />
         <h2 className="section-title mt-5 text-4xl font-semibold tracking-tight sm:text-6xl">
-          Let&apos;s build something great.
+          Let&apos;s talk frontend.
         </h2>
         <p className="mx-auto mt-5 max-w-2xl text-slate-400">
-          Looking for a frontend developer, need help turning a design into a
-          production interface, or want to improve an existing React
-          application?
+          Looking for a frontend developer for React, Next.js, TypeScript,
+          responsive UI, API integration, or frontend performance work? Let&apos;s
+          connect.
         </p>
         <a
-          href="mailto:codesfahad@gmail.com"
+          href="mailto:fahad.zahid2004@gmail.com"
           className="primary-btn mt-8 inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold"
         >
           Start a Conversation <ArrowUpRight size={17} />
@@ -27,14 +27,14 @@ export default function ContactSection() {
         <div className="mt-10 flex justify-center gap-5 text-slate-600">
           <a
             aria-label="GitHub"
-            href="https://github.com/faha-d"
+            href="https://www.github.com/faha-d"
             className="transition hover:text-white"
           >
             <Github size={19} />
           </a>
           <a
             aria-label="LinkedIn"
-            href="https://www.linkedin.com/in/faha-dy"
+            href="https://www.linkedin.com/in/faha-d"
             className="transition hover:text-white"
           >
             <Linkedin size={19} />

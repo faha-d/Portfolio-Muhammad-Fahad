@@ -4,11 +4,11 @@ import SectionLabel from "./ui/SectionLabel";
 import { skills } from "./site-data";
 export default function SkillsSection() {
   return (
-    <section id="skills" className="px-5 py-24 lg:px-8 lg:py-28">
+    <section id="skills" className="px-5 pb-8 pt-12 lg:px-8 lg:pb-12 lg:pt-16">
       <Reveal className="mx-auto max-w-7xl">
-        <SectionLabel number="04" title="TOOLKIT" />
+        <SectionLabel number="02" title="TOOLKIT" />
         <h2 className="section-title mt-4 text-3xl font-semibold tracking-tight sm:text-5xl">
-          The tools I reach for.
+          Technologies I use to ship.
         </h2>
         <div className="mt-8 flex flex-wrap gap-2">
           {skills.map((item) => (

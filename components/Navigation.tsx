@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
-const items = ["About", "Experience", "Projects", "Skills", "Contact"];
+const items = ["Skills", "Experience", "Contact"];
 
 export default function Navigation() {
   const [open, setOpen] = useState(false);
@@ -29,7 +29,7 @@ export default function Navigation() {
             </a>
           ))}
           <a
-            href="/resume.pdf"
+            href="/resume"
             download
             className="rounded-full border border-[#5cff9a]/25 bg-[#5cff9a]/10 px-4 py-2 text-[#8dffb6] transition hover:border-[#5cff9a]/50 hover:bg-[#5cff9a]/15"
           >

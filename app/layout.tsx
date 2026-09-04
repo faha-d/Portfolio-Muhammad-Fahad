@@ -2,14 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Muhammad Fahad — Frontend Developer",
+  title: "Resume - Muhammad Fahad",
   description:
-    "Frontend Developer specializing in React, Next.js and TypeScript, building production-ready web experiences.",
-  metadataBase: new URL("https://example.com"),
+    "Frontend Developer specializing in React, Next.js, TypeScript, responsive UI, API integration and accessible web applications.",
   openGraph: {
-    title: "Muhammad Fahad — Frontend Developer",
+    title: "Resume - Muhammad Fahad",
     description:
-      "Frontend Developer specializing in React, Next.js and TypeScript, building production-ready web experiences.",
+      "Frontend Developer specializing in React, Next.js, TypeScript, responsive UI, API integration and accessible web applications.",
     type: "website",
   },
 };

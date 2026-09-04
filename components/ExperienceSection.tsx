@@ -1,15 +1,14 @@
 "use client";
-import { ArrowUpRight } from "lucide-react";
 import { experience } from "./site-data";
 import Reveal from "./Reveal";
 import SectionLabel from "./ui/SectionLabel";
 export default function ExperienceSection() {
   return (
-    <section id="experience" className="px-5 py-24 lg:px-8 lg:py-32">
+    <section id="experience" className="px-5 pb-24 pt-8 lg:px-8 lg:pb-32 lg:pt-12">
       <Reveal className="mx-auto max-w-7xl">
         <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
           <div>
-            <SectionLabel number="02" title="EXPERIENCE" />
+            <SectionLabel number="03" title="EXPERIENCE" />
             <h2 className="section-title mt-4 text-3xl font-semibold tracking-tight sm:text-5xl">
               Production experience.
             </h2>
@@ -17,9 +16,6 @@ export default function ExperienceSection() {
               The work that shaped how I build, test, optimize and ship frontend
               systems.
             </p>
-          </div>
-          <div className="mono flex items-center gap-2 text-xs text-slate-600">
-            <span className="status-dot" /> 2023 — Present
           </div>
         </div>
         <div className="mt-12 rounded-2xl border border-white/[0.08] bg-[#080e19] p-5 sm:p-8">
@@ -33,28 +29,23 @@ export default function ExperienceSection() {
               </h3>
               <p className="mt-1 text-slate-400">
                 PureSquare <span className="text-slate-700">·</span> Disrupt
-                Formerly Gaditek
+                <span className="text-slate-700"> · </span>Formerly Gaditek
               </p>
+              <p className="mono mt-3 text-xs text-slate-500">2023 — Present</p>
             </div>
             <div className="rounded-lg border border-white/[0.07] bg-white/[0.02] px-3 py-2 text-xs text-slate-500">
               React · Next.js · TypeScript
             </div>
           </div>
-          <div className="experience-grid mt-7 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
-            {experience.map((item) => (
+          <div className="experience-grid mt-7 grid gap-3 md:grid-cols-2 lg:grid-cols-6">
+            {experience.map((item, index) => (
               <article
                 key={item.number}
-                className="experience-card group rounded-xl border border-white/[0.07] bg-[#0b1220] p-5 transition hover:-translate-y-1"
+                className={`experience-card rounded-xl border border-white/[0.07] bg-[#0b1220] p-5 transition hover:-translate-y-1 lg:col-span-2 ${index === 3 ? "lg:col-start-2" : ""}`}
               >
-                <div className="flex items-start justify-between">
-                  <span className="mono text-[10px] text-slate-700">
-                    {item.number}
-                  </span>
-                  <ArrowUpRight
-                    size={15}
-                    className="text-slate-700 transition group-hover:text-[#5cff9a]"
-                  />
-                </div>
+                <span className="mono text-[10px] text-slate-700">
+                  {item.number}
+                </span>
                 <h4 className="mt-6 text-base font-semibold text-slate-100">
                   {item.title}
                 </h4>

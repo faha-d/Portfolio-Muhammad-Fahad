@@ -1,54 +1,29 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   ArrowDown,
-  ArrowUpRight,
   Check,
   Code2,
   Command,
+  Download,
   Terminal,
   Zap,
 } from "lucide-react";
-import { metrics, tech } from "./site-data";
 import Reveal from "./Reveal";
 import { Blue, CodeLine, Green, Keyword, Orange } from "./ui/CodePrimitives";
 
-function TechGlyph({ id }: { id: string }) {
-  const letters: Record<string, string> = {
-    react: "R",
-    next: "N",
-    ts: "TS",
-    redux: "R",
-    zustand: "Z",
-    node: "N",
-    api: "↗",
-    jest: "J",
-    cypress: "C",
-    tw: "T",
-    mongo: "M",
-    firebase: "F",
-  };
-  return (
-    <span className="grid h-4 min-w-4 place-items-center rounded-[4px] border border-white/[0.08] bg-white/[0.025] px-1 text-[8px] font-semibold text-slate-500">
-      {letters[id]}
-    </span>
-  );
-}
-
 export default function Hero() {
-  const reduceMotion = useReducedMotion();
-
   return (
     <section
       id="top"
-      className="hero-grid relative flex min-h-screen items-center px-5 pb-10 pt-28 lg:px-8"
+      className="hero-grid relative flex items-center px-5 py-24 lg:px-8 lg:py-28"
     >
       <div className="hero-orb absolute left-1/2 top-16 h-[32rem] w-[32rem] -translate-x-1/2 rounded-full bg-[#5cff9a]/[0.065] blur-[130px]" />
       <div className="absolute left-[10%] top-[28%] hidden h-px w-32 bg-gradient-to-r from-transparent via-[#5cff9a]/30 to-transparent lg:block" />
       <div className="absolute right-[8%] top-[35%] hidden h-px w-44 bg-gradient-to-r from-transparent via-white/10 to-transparent lg:block" />
 
-      <div className="relative mx-auto w-full max-w-7xl">
+      <Reveal className="relative mx-auto w-full max-w-7xl">
         <div className="grid items-center gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-14">
           <motion.div
             initial={{ opacity: 0, y: 22 }}
@@ -59,7 +34,7 @@ export default function Hero() {
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#5cff9a]/15 bg-[#5cff9a]/[0.05] px-3 py-1.5">
               <span className="status-dot" />
               <span className="mono text-[11px] text-[#8dffb6]">
-                FRONTEND DEVELOPER · 2+ YEARS
+                FRONTEND DEVELOPER · 3+ YEARS · OPEN TO ROLES
               </span>
             </div>
             <p className="mono text-sm text-[#5cff9a]">Hello, I&apos;m</p>
@@ -72,9 +47,9 @@ export default function Hero() {
               Frontend Developer
             </p>
             <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-slate-400 lg:mx-0 sm:text-lg">
-              I build production-ready React and Next.js experiences that turn
-              complex product requirements into fast, accessible, and intuitive
-              interfaces.
+              Frontend Developer building production-ready React and Next.js
+              applications with TypeScript, responsive UI, accessible
+              interfaces, state management, and API integrations.
             </p>
             <div className="mono mt-5 flex flex-wrap justify-center gap-x-3 gap-y-2 text-xs text-slate-500 lg:justify-start">
               <span>React</span>
@@ -95,10 +70,11 @@ export default function Hero() {
                 See Experience <ArrowDown size={16} />
               </a>
               <a
-                href="#projects"
-                className="secondary-btn inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium"
+                href="/resume"
+                download="Muhammad_Fahad_Resume.pdf"
+                className="secondary-btn inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium text-white"
               >
-                View My Work <ArrowUpRight size={16} />
+                Download Resume <Download size={16} />
               </a>
             </div>
           </motion.div>
@@ -191,7 +167,7 @@ export default function Hero() {
                   <CodeLine n="5">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <Orange>experience</Orange>=
-                    <Green>&quot;2+ years&quot;</Green>
+                    <Green>&quot;3+ years&quot;</Green>
                   </CodeLine>
                   <CodeLine n="6">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Orange>focus</Orange>=
@@ -227,41 +203,7 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="mt-16 overflow-hidden border-y border-white/[0.055] py-4"
-        >
-          <div
-            className={`flex w-max gap-8 mono text-[11px] text-slate-600 ${reduceMotion ? "" : "animate-marquee"}`}
-          >
-            {[...tech, ...tech].map(([name, id], index) => (
-              <span
-                key={`${id}-${index}`}
-                className="flex items-center gap-2 whitespace-nowrap"
-              >
-                <TechGlyph id={id} /> {name}
-              </span>
-            ))}
-          </div>
-        </motion.div>
-        <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
-          {metrics.map(([number, label], index) => (
-            <Reveal key={label} delay={0.08 * index}>
-              <motion.div
-                whileHover={{ y: -3 }}
-                className="metric-card rounded-xl border border-white/[0.07] bg-white/[0.02] p-4 sm:p-5"
-              >
-                <div className="text-2xl font-semibold tracking-tight text-[#5cff9a] sm:text-3xl">
-                  {number}
-                </div>
-                <div className="mt-1 text-[11px] text-slate-500">{label}</div>
-              </motion.div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
+        </Reveal>
     </section>
   );
 }
